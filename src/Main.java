@@ -147,8 +147,12 @@ public class Main {
 							escolhaProduto = sc.nextInt();
 							for (Produto produtoSearch : produtos) {
 								if (produtoSearch.getId().equals(escolhaProduto) && produtoSearch.getEmpresa().getId().equals(escolhaEmpresa)) {
-									carrinho.add(produtoSearch);
-									produtoSearch.setQuantidade(produtoSearch.getQuantidade() - 1);
+									if(produtoSearch.getQuantidade()>0) {
+										carrinho.add(produtoSearch);
+										produtoSearch.setQuantidade(produtoSearch.getQuantidade() - 1);
+									}else {
+										System.out.println("Produto sem estoque");
+									}
 								}
 							}
 						} while (escolhaProduto != 0);
