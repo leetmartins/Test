@@ -65,7 +65,9 @@ public class Main {
 		if (usuariosSearch.size() > 0) {
 			Usuario usuarioLogado = usuariosSearch.get(0);
 			if ((usuarioLogado.getSenha().equals(senha))) {
-
+				if(usuarioLogado.IsAdmin()) {
+					System.out.println("Para obter informações, entre com o login da empresa");
+				}else {
 				System.out.println("Escolha uma opção para iniciar");
 				if (usuarioLogado.IsEmpresa()) {
 					System.out.println("1 - Listar vendas");
@@ -206,7 +208,7 @@ public class Main {
 					}
 				}
 
-			} else
+			} }else
 				System.out.println("Senha incorreta");
 		} else {
 			System.out.println("Usuário não encontrado");
