@@ -89,6 +89,7 @@ public class Main {
 								System.out.println("Total Líquido  para empresa"
 										+ (venda.getValor() - venda.getComissaoSistema()));
 								System.out.println("************************************************************");
+								usuarioLogado.getEmpresa().setSaldo(usuarioLogado.getEmpresa().getSaldo() - venda.getComissaoSistema());
 							}
 
 						});
