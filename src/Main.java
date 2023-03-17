@@ -13,8 +13,8 @@ public class Main {
 		List<Produto> carrinho = new ArrayList<Produto>();
 		List<Venda> vendas = new ArrayList<Venda>();
 
-		Empresa empresa = new Empresa(2, "SafeWay Padaria", "30021423000159", 0.15, 0.0);
-		Empresa empresa2 = new Empresa(1, "Level Varejo", "53239160000154", 0.05, 0.0);
+		Empresa empresa = new Empresa(1, "SafeWay Padaria", "30021423000159", 0.15, 0.0);
+		Empresa empresa2 = new Empresa(2, "Level Varejo", "53239160000154", 0.05, 0.0);
 		Empresa empresa3 = new Empresa(3, "SafeWay Restaurante", "41361511000116", 0.20, 0.0);
 
 		Produto produto = new Produto(1, "Pão Frances", 5, 3.50, empresa);
@@ -124,7 +124,7 @@ public class Main {
 					}
 
 				} else {
-					System.out.println("1 - Relizar Compras");
+					System.out.println("1 - Realizar Compras");
 					System.out.println("2 - Ver Compras");
 					System.out.println("0 - Deslogar");
 					Integer escolha = sc.nextInt();
@@ -146,8 +146,9 @@ public class Main {
 							System.out.println("0 - Finalizar compra");
 							escolhaProduto = sc.nextInt();
 							for (Produto produtoSearch : produtos) {
-								if (produtoSearch.getId().equals(escolhaProduto))
+								if (produtoSearch.getId().equals(escolhaProduto) && produtoSearch.getEmpresa().getId().equals(escolhaEmpresa)) {
 									carrinho.add(produtoSearch);
+								}
 							}
 						} while (escolhaProduto != 0);
 						System.out.println("************************************************************");
@@ -201,6 +202,7 @@ public class Main {
 		} else {
 			System.out.println("Usuário não encontrado");
 		}
+		sc.close();
 	}
 
 	public static Venda criarVenda(List<Produto> carrinho, Empresa empresa, Cliente cliente, List<Venda> vendas) {
