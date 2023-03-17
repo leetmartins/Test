@@ -85,15 +85,16 @@ public class Main {
 									System.out.println(x.getId() + " - " + x.getNome() + "    R$" + x.getPreco());
 								});
 								System.out.println("Total Venda: R$" + venda.getValor());
+								System.out.println("Taxa de comissão do Sistema: " + usuarioLogado.getEmpresa().getTaxa()*100 + "%");
 								System.out.println("Total Taxa a ser paga: R$" + venda.getComissaoSistema());
-								System.out.println("Total Líquido  para empresa"
+								System.out.println("Total Líquido  para empresa: R$"
 										+ (venda.getValor() - venda.getComissaoSistema()));
 								System.out.println("************************************************************");
 								usuarioLogado.getEmpresa().setSaldo(usuarioLogado.getEmpresa().getSaldo() - venda.getComissaoSistema());
 							}
 
 						});
-						System.out.println("Saldo Empresa: " + usuarioLogado.getEmpresa().getSaldo());
+						System.out.println("Saldo Empresa: R$" + usuarioLogado.getEmpresa().getSaldo());
 						System.out.println("************************************************************");
 
 						executar(usuarios, clientes, empresas, produtos, carrinho, vendas);
