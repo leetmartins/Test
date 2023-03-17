@@ -148,6 +148,7 @@ public class Main {
 							for (Produto produtoSearch : produtos) {
 								if (produtoSearch.getId().equals(escolhaProduto) && produtoSearch.getEmpresa().getId().equals(escolhaEmpresa)) {
 									carrinho.add(produtoSearch);
+									produtoSearch.setQuantidade(produtoSearch.getQuantidade() - 1);
 								}
 							}
 						} while (escolhaProduto != 0);
